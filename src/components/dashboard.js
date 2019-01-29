@@ -2,27 +2,47 @@ import React from 'react';
 import {connect} from 'react-redux';
 import requiresLogin from './requires-login';
 import {fetchWords} from '../actions/words';
+import {fetchProtectedData} from '../actions/protected-data';
+import Game from './game';
 
 export class Dashboard extends React.Component {
+
+
+
     componentDidMount() {
         this.props.dispatch(fetchWords());
     }
 
+    // processAnswer(userAnswer) {
+
+    //     console.log('Answer is at processAnswer: ',userAnswer);
+
+    //     //compare userAnswer with this.props.answer
+ 
+    // }
+ 
+
     render() {
         console.log(this.props.words);
+
+        let tempWord = 'placeholder word';
+        let tempResults = true;
+
         return (
             <div className="dashboard">
                 Hello {this.props.name} 
                 <br/>
                 <br/>
+                <hr/>
                 <br/>
-                <div className="dashboard-username">
-                    Username: {this.props.username}
-                </div>
-                <div className="dashboard-name">Name: {this.props.name}</div>
-                <div className="dashboard-protected-data">
-                    Protected data: {this.props.protectedData}
-                </div>
+                <Game 
+                currentWord={tempWord} 
+                // handleClick={(answer)=>this.processAnswer(answer)}
+                 
+                />
+                <br/>
+                <hr/>
+                 
             </div>
         );
     }
