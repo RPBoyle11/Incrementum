@@ -1,14 +1,15 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import requiresLogin from './requires-login';
-import {fetchProtectedData} from '../actions/protected-data';
+import {fetchWords} from '../actions/words';
 
 export class Dashboard extends React.Component {
     componentDidMount() {
-        this.props.dispatch(fetchProtectedData());
+        this.props.dispatch(fetchWords());
     }
 
     render() {
+        console.log(this.props.words);
         return (
             <div className="dashboard">
                 Hello {this.props.name} 
@@ -32,7 +33,8 @@ const mapStateToProps = state => {
     return {
         username: state.auth.currentUser.username,
         name: `${currentUser.firstName} ${currentUser.lastName}`,
-        protectedData: state.protectedData.data
+        protectedData: state.protectedData.data,
+        words: state.words.words
     };
 };
 
