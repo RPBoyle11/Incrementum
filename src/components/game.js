@@ -12,6 +12,7 @@ export default class Game extends React.Component {
     super(props);
     this.state = {
 
+      wordSelector: Math.floor(Math.random() * Math.floor(this.props.currentWords.length)),
       gameMode: 'newWordMode',
       gameResponse: 'Your New Word is: '
 
@@ -24,6 +25,10 @@ export default class Game extends React.Component {
   onSubmit(e) {
     
     e.preventDefault();
+
+    let answer = this.input.value;
+
+
    
     //clear input field
     e.target.reset();
@@ -34,9 +39,22 @@ export default class Game extends React.Component {
     //go process answer
 
     //return testResults...
+  
+    let testResults;
+ 
+    let theMeaning = this.props.currentWords[this.state.wordSelector].meaning;
 
+    if(theMeaning.toLowerCase() === answer.toLowerCase()){
 
-    let testResults = true;
+      testResults = true;
+
+    }
+    else{
+
+      testResults = false;
+
+    }
+
     let update_gameMode;
     let update_gameResponse;
  
@@ -64,9 +82,15 @@ export default class Game extends React.Component {
 
   //Next click
   onNextClick(){
+      
+    //random word selector
+    let newWordSelector = Math.floor(Math.random() * Math.floor(this.props.currentWords.length));
+
+    console.log('wordSelector > ',newWordSelector);
 
     this.setState({
 
+      wordSelector: newWordSelector, 
       gameMode: 'newWordMode',
       gameResponse: 'Your New Word is: '
        
@@ -77,6 +101,19 @@ export default class Game extends React.Component {
 
   render(){
 
+    //console.log(this.props.words[0].word);
+
+    let theWord = 'Loading...';
+    let theMeaning = '';
+    
+    if(this.props.currentWords[0] !== undefined){
+
+      theWord = this.props.currentWords[this.state.wordSelector].word;
+      theMeaning = this.props.currentWords[this.state.wordSelector].meaning;
+
+    }
+      
+
     //NEW WORD MODE
     if(this.state.gameMode === 'newWordMode'){
 
@@ -84,7 +121,7 @@ export default class Game extends React.Component {
         <div>
         <h3>{this.state.gameResponse}</h3>
         <br/>
-        <p> {this.props.currentWord} </p>
+        <p> {theWord} </p>
         <br/>
         <hr/>
         <br/>
@@ -108,7 +145,7 @@ export default class Game extends React.Component {
         <div>
         <h3>{this.state.gameResponse}</h3>
         <br/>
-        <p> {this.props.currentWord} means show answer</p>
+        <p> You are CORRECT, the meaning of {theWord} is {theMeaning}.</p>
         <br/>
         <hr/>
         <button onClick={(e)=>this.onNextClick()}>NEXT WORD</button>
@@ -127,7 +164,7 @@ export default class Game extends React.Component {
           <div>
           <h3>{this.state.gameResponse}</h3>
           <br/>
-          <p> {this.props.currentWord} means show answer</p>
+          <p>The correct meaning of {theWord} is {theMeaning}.</p>
           <br/>
           <hr/>
           <button onClick={(e)=>this.onNextClick()}>NEXT WORD</button>
