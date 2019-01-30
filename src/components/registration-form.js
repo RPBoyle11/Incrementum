@@ -9,14 +9,17 @@ const matchesPassword = matches('password');
 
 export class RegistrationForm extends React.Component {
     onSubmit(values) {
+        const questions = this.props.wordsArr;
         const {username, password, firstName, lastName} = values;
-        const user = {username, password, firstName, lastName};
+        const user = {username, password, firstName, lastName, questions};
+        console.log(user);
         return this.props
             .dispatch(registerUser(user))
             .then(() => this.props.dispatch(login(username, password)));
     }
 
     render() {
+        console.log(this.props.wordsArr);
         return (
             <form
                 className="login-form"

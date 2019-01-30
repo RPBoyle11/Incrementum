@@ -42,7 +42,7 @@ export default class Game extends React.Component {
   
     let testResults;
  
-    let theMeaning = this.props.currentWords[this.state.wordSelector].meaning;
+    let theMeaning = this.props.currentWords[this.state.wordSelector].answer;
 
     if(theMeaning.toLowerCase() === answer.toLowerCase()){
 
@@ -109,7 +109,7 @@ export default class Game extends React.Component {
     if(this.props.currentWords[0] !== undefined){
 
       theWord = this.props.currentWords[this.state.wordSelector].word;
-      theMeaning = this.props.currentWords[this.state.wordSelector].meaning;
+      theMeaning = this.props.currentWords[this.state.wordSelector].answer;
 
     }
       

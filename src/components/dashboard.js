@@ -23,26 +23,6 @@ export class Dashboard extends React.Component {
  
 
     render() {
-        //console.log(this.props.words[0].word);
-
-        // let currentWord = 'Loading...';
-
-        // let wordSelector = 0;
-         
-
-        // if(this.props.words[0] !== undefined){
-
-        //     //random word selector
-        //     wordSelector = Math.floor(Math.random() * Math.floor(this.props.words.length));
-
-        //     console.log('wordSelector > ',wordSelector);
-
-        //     currentWord = this.props.words[wordSelector];
-
-        //     console.log('currentWord ',currentWord);
-        //     console.log('this.props.words ',this.props.words);
-            
-        // }
           
         return (
             <div className="dashboard">
@@ -52,7 +32,6 @@ export class Dashboard extends React.Component {
                 <hr/>
                 <br/>
                 <Game 
-                // currentWord={currentWord}
                 currentWords={this.props.words} 
                 // handleClick={(answer)=>this.processAnswer(answer)}
                  
