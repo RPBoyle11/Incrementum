@@ -1,26 +1,16 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import requiresLogin from './requires-login';
-import {fetchWords} from '../actions/words';
+import {fetchNextWord} from '../actions/words';
 import {fetchProtectedData} from '../actions/protected-data';
 import Game from './game';
 
 export class Dashboard extends React.Component {
 
-    
 
     componentDidMount() {
-        this.props.dispatch(fetchWords());
+        this.props.dispatch(fetchNextWord(this.props.id));
     }
-
-    // processAnswer(userAnswer) {
-
-    //     console.log('Answer is at processAnswer: ',userAnswer);
-
-    //     //compare userAnswer with this.props.answer
- 
-    // }
- 
 
     render() {
           
@@ -31,11 +21,7 @@ export class Dashboard extends React.Component {
                 <br/>
                 <hr/>
                 <br/>
-                <Game 
-                currentWords={this.props.words} 
-                // handleClick={(answer)=>this.processAnswer(answer)}
-                 
-                />
+                <Game currentWord={this.props.nextWord} />
                 <br/>
                 <hr/>
                  
@@ -50,7 +36,10 @@ const mapStateToProps = state => {
         username: state.auth.currentUser.username,
         name: `${currentUser.firstName} ${currentUser.lastName}`,
         protectedData: state.protectedData.data,
-        words: state.words.words
+        words: state.words.words,
+        nextWord: state.nextWord.nextWord,
+        id: currentUser._id
+        
     };
 };
 

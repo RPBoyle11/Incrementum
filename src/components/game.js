@@ -1,5 +1,5 @@
 import React from 'react';
-
+import {fetchNextWord} from '../actions/words';
 
 export default class Game extends React.Component {
 
@@ -12,7 +12,6 @@ export default class Game extends React.Component {
     super(props);
     this.state = {
 
-      wordSelector: Math.floor(Math.random() * Math.floor(this.props.currentWords.length)),
       gameMode: 'newWordMode',
       gameResponse: 'Your New Word is: '
 
@@ -22,29 +21,18 @@ export default class Game extends React.Component {
   }
 
   //submit answer
-  onSubmit(e) {
-    
+  onSubmit(e) { 
     e.preventDefault();
+    let userAnswer = this.input.value;
 
-    let answer = this.input.value;
-
-
-   
     //clear input field
     e.target.reset();
-
-    
-    // this.props.handleClick(this.input.value); 
-
-    //go process answer
-
-    //return testResults...
   
     let testResults;
  
-    let theMeaning = this.props.currentWords[this.state.wordSelector].answer;
+    let theAnswer = this.props.currentWord.answer;
 
-    if(theMeaning.toLowerCase() === answer.toLowerCase()){
+    if(theAnswer.toLowerCase() === userAnswer.toLowerCase()){
 
       testResults = true;
 
@@ -82,58 +70,53 @@ export default class Game extends React.Component {
 
   //Next click
   onNextClick(){
+
+    //do we need to pass in the current word to find out whats next?
+    this.props.dispatch(fetchNextWord());
+    this.props.dispatch(changeCurrentWord());
+
       
     //random word selector
-    let newWordSelector = Math.floor(Math.random() * Math.floor(this.props.currentWords.length));
-
-    console.log('wordSelector > ',newWordSelector);
+    // let newWordSelector = Math.floor(Math.random() * Math.floor(this.props.currentWords.length));
 
     this.setState({
 
-      wordSelector: newWordSelector, 
       gameMode: 'newWordMode',
       gameResponse: 'Your New Word is: '
        
     })
-
-
   }
 
   render(){
 
-    //console.log(this.props.words[0].word);
-
     let theWord = 'Loading...';
-    let theMeaning = '';
+    let theAnswer = '';
     
-    if(this.props.currentWords[0] !== undefined){
+    if(this.props.currentWord !== undefined){
 
-      theWord = this.props.currentWords[this.state.wordSelector].word;
-      theMeaning = this.props.currentWords[this.state.wordSelector].answer;
-
+      theWord = this.props.currentWord.word;
+      theAnswer = this.props.currentWord.answer;
     }
-      
 
     //NEW WORD MODE
     if(this.state.gameMode === 'newWordMode'){
 
       return(
         <div>
-        <h3>{this.state.gameResponse}</h3>
-        <br/>
-        <p> {theWord} </p>
-        <br/>
-        <hr/>
-        <br/>
-        <form onSubmit={e => this.onSubmit(e)}>
-          <input
-                type="text"
-                id="answer"
-                ref={input => (this.input = input)}
-                    /> 
-        <button>SUBMIT</button>    
-        </form>
-         
+          <h3>{this.state.gameResponse}</h3>
+          <br/>
+          <p> {theWord} </p>
+          <br/>
+          <hr/>
+          <br/>
+          <form onSubmit={e => this.onSubmit(e)}>
+            <input
+                  type="text"
+                  id="answer"
+                  ref={input => (this.input = input)}
+                      /> 
+            <button>SUBMIT</button>    
+          </form>
         </div>
       );
     }
@@ -143,18 +126,15 @@ export default class Game extends React.Component {
 
       return(
         <div>
-        <h3>{this.state.gameResponse}</h3>
-        <br/>
-        <p> You are CORRECT, the meaning of {theWord} is {theMeaning}.</p>
-        <br/>
-        <hr/>
-        <button onClick={(e)=>this.onNextClick()}>NEXT WORD</button>
-        <br/>
-         
+          <h3>{this.state.gameResponse}</h3>
+          <br/>
+          <p> You are CORRECT, the meaning of {theWord} is {theAnswer}.</p>
+          <br/>
+          <hr/>
+          <button onClick={(e)=>this.onNextClick()}>NEXT WORD</button>
+          <br/>
         </div>
       );
-
-
     }
 
     //WRONG MODE
@@ -162,20 +142,16 @@ export default class Game extends React.Component {
 
         return(
           <div>
-          <h3>{this.state.gameResponse}</h3>
-          <br/>
-          <p>The correct meaning of {theWord} is {theMeaning}.</p>
-          <br/>
-          <hr/>
-          <button onClick={(e)=>this.onNextClick()}>NEXT WORD</button>
-          <br/>
-           
+            <h3>{this.state.gameResponse}</h3>
+            <br/>
+            <p>The correct meaning of {theWord} is {theAnswer}.</p>
+            <br/>
+            <hr/>
+            <button onClick={(e)=>this.onNextClick()}>NEXT WORD</button>
+            <br/>
           </div>
         );
-
-
       }
-
     }
  }
 
