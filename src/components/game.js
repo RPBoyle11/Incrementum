@@ -33,7 +33,7 @@ export class Game extends React.Component {
   
     let testResults;
  
-    let theAnswer = this.props.currentWord.answer;
+    let theAnswer = this.props.userRefresh.questions[this.props.userRefresh.head].answer;
 
     if(theAnswer.toLowerCase() === userAnswer.toLowerCase()){
 
@@ -102,10 +102,11 @@ export class Game extends React.Component {
     let theWord = 'Loading...';
     let theAnswer = '';
     
-    if(this.props.currentWord !== undefined){
+    if(this.props.userRefresh.questions !== undefined){
 
-      theWord = this.props.currentWord.word;
-      theAnswer = this.props.currentWord.answer;
+      console.log(this.props.userRefresh.questions);
+      theWord = this.props.userRefresh.questions[this.props.userRefresh.head].word;
+      theAnswer = this.props.userRefresh.questions[this.props.userRefresh.head].answer;
     }
 
     //NEW WORD MODE

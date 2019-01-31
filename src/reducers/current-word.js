@@ -4,7 +4,7 @@ import {
 } from '../actions/words';
 
 const initialState = { 
-  currentWord: {},
+  userRefresh: {},
   error: null
 };
  
@@ -13,7 +13,7 @@ export default function reducer(state = initialState, action) {
     if (action.type === FETCH_CURRENT_SUCCESS) {
         console.log('Fetch Success: ', action);
         return Object.assign({}, state, {
-            currentWord: action.currentWord,
+            userRefresh: action.userRefresh,
             error: null
         });
     } else if (action.type === FETCH_CURRENT_ERROR) {

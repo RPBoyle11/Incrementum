@@ -28,9 +28,9 @@ export const fetchNextError = error => ({
 
 
 export const FETCH_CURRENT_SUCCESS = 'FETCH_CURRENT_SUCCESS';
-export const fetchCurrentSuccess = currentWord => ({
+export const fetchCurrentSuccess = userRefresh => ({
     type: FETCH_CURRENT_SUCCESS,
-    currentWord
+    userRefresh
 });
 
 export const FETCH_CURRENT_ERROR = 'FETCH_CURRENT_ERROR';

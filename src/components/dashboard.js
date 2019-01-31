@@ -12,8 +12,9 @@ export class Dashboard extends React.Component {
     componentDidMount() {
         this.props.dispatch(fetchCurrentWord(this.props.id));
     }
-
+    
     render() {
+        console.log(this.props.currentWord);
           
         return (
             <div className="dashboard">
@@ -22,7 +23,7 @@ export class Dashboard extends React.Component {
                 <br/>
                 <hr/>
                 <br/>
-                <Game currentWord={this.props.currentWord} currentUser={this.props.currentUser}/>
+                <Game userRefresh={this.props.currentWord} currentUser={this.props.currentUser} />
                 <br/>
                 <hr/>
                  
@@ -40,7 +41,7 @@ const mapStateToProps = state => {
         words: state.words.words,
         nextWord: state.nextWord.nextWord,
         id: currentUser._id,
-        currentWord: state.currentWord.currentWord,
+        currentWord: state.currentWord.userRefresh,
         currentUser: state.auth.currentUser
         
     };
