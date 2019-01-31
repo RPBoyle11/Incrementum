@@ -40,7 +40,8 @@ const mapStateToProps = state => {
         words: state.words.words,
         nextWord: state.nextWord.nextWord,
         id: currentUser._id,
-        currentWord: state.currentWord.currentWord
+        currentWord: state.currentWord.currentWord,
+        currentUser: state.auth.currentUser
         
     };
 };

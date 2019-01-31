@@ -1,7 +1,9 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import {fetchNextWord} from '../actions/words';
+import {fetchSetOrder} from '../actions/words';
 import {fetchCurrentWord} from '../actions/words';
-export default class Game extends React.Component {
+export class Game extends React.Component {
 
   //Game modes
   //show word mode -- new word & SUBMIT BUTTON
@@ -46,7 +48,9 @@ export default class Game extends React.Component {
 
 
     //PUT based on test results
-    this.props.dispatch(fetchSetOrder(this.props.id, testResults, this.props.currentUser));
+    console.log('>>id',this.props.currentUser._id,'>>test', testResults,'>>user all', this.props.currentUser);
+    
+    this.props.dispatch(fetchSetOrder(testResults, this.props.currentUser));
        
 
     let update_gameMode;
@@ -78,7 +82,7 @@ export default class Game extends React.Component {
   onNextClick(){
 
     //do we need to pass in the current word to find out whats next?
-    this.props.dispatch(fetchCurrentWord());
+    this.props.dispatch(fetchCurrentWord(this.props.currentUser._id));
     //this.props.dispatch(changeCurrentWord());
 
       
@@ -160,6 +164,19 @@ export default class Game extends React.Component {
       }
     }
  }
+
+ const mapStateToProps = state => {
+
+  return {
+
+    
+
+  }
+
+}
+
+
+export default connect(mapStateToProps)(Game);
 
 
 

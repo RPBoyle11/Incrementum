@@ -1,5 +1,6 @@
 import {API_BASE_URL} from '../config';
 import {normalizeResponseErrors} from './utils';
+import store from '../store';
 
 export const FETCH_WORDS_SUCCESS = 'FETCH_WORDS_SUCCESS';
 export const fetchWordsSuccess = words => ({
@@ -116,18 +117,28 @@ export const fetchCurrentWord = (userId) => (dispatch) => {
 };
 
 //PUT FOR CHANGING ORDER
-export const fetchSetOrder = (userId,testResults) => (dispatch) => {
-    // const authToken = getState().auth.authToken;
-    return fetch(`${API_BASE_URL}/users/next/${userId}/${testResults}`, {
+export const fetchSetOrder = (testResults,userInfo) => (dispatch) => {
+  
+    //console.log('state: ',store.getState().auth.currentUser);
+
+    const authToken = store.getState().auth.authToken;
+ 
+    return fetch(`${API_BASE_URL}/users/next/${userInfo._id}/${testResults}`, {
         method: 'PUT',
+        body: JSON.stringify(userInfo),
         headers: {
+          Authorization: `Bearer ${authToken}`,
           'Accept': 'application/json',
-          'Content-Type': 'application/json'
+          'content-type': 'application/json'
+          
         }
         // headers: {
             // Provide our auth token as credentials
             // Authorization: `Bearer ${authToken}`
         // }
+
+        // 'data': {userInfo:JSON.stringify(userInfo)},
+          
     })
         .then(res => normalizeResponseErrors(res))
         .then(res => res.json())
