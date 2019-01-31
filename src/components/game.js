@@ -45,14 +45,9 @@ export default class Game extends React.Component {
     }
 
 
-      //PUT based on test results
+    //PUT based on test results
+    this.props.dispatch(fetchSetOrder(this.props.id, testResults, this.props.currentUser));
        
-      this.props.dispatch(fetchSetOrder(this.props.id,testResults,));
-       
-
-
-   
-
 
     let update_gameMode;
     let update_gameResponse;

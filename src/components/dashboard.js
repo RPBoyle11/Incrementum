@@ -22,7 +22,7 @@ export class Dashboard extends React.Component {
                 <br/>
                 <hr/>
                 <br/>
-                <Game currentWord={this.props.nextWord} />
+                <Game currentWord={this.props.currentWord} currentUser={this.props.currentUser}/>
                 <br/>
                 <hr/>
                  
@@ -39,7 +39,8 @@ const mapStateToProps = state => {
         protectedData: state.protectedData.data,
         words: state.words.words,
         nextWord: state.nextWord.nextWord,
-        id: currentUser._id
+        id: currentUser._id,
+        currentWord: state.currentWord.currentWord
         
     };
 };
