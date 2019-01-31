@@ -25,6 +25,35 @@ export const fetchNextError = error => ({
     error
 });
 
+
+export const FETCH_CURRENT_SUCCESS = 'FETCH_CURRENT_SUCCESS';
+export const fetchCurrentSuccess = currentWord => ({
+    type: FETCH_CURRENT_SUCCESS,
+    currentWord
+});
+
+export const FETCH_CURRENT_ERROR = 'FETCH_CURRENT_ERROR';
+export const fetchCurrentError = error => ({
+    type: FETCH_CURRENT_ERROR,
+    error
+});
+
+
+
+export const FETCH_SET_ORDER_SUCCESS = 'FETCH_SET_ORDER_SUCCESS';
+export const fetchSetOrderSuccess = data => ({
+    type: FETCH_SET_ORDER_SUCCESS,
+    data
+});
+
+export const FETCH_SET_ORDER_ERROR = 'FETCH_SET_ORDER_ERROR';
+export const fetchSetOrderError = error => ({
+    type: FETCH_SET_ORDER_ERROR,
+    error
+});
+
+
+
 export const fetchWords = () => (dispatch) => {
     // const authToken = getState().auth.authToken;
     return fetch(`${API_BASE_URL}/words`, {
@@ -60,5 +89,50 @@ export const fetchNextWord = (userId) => (dispatch) => {
         .then(nextWord => dispatch(fetchNextSuccess(nextWord)))
         .catch(err => {
             dispatch(fetchNextError(err));
+        });
+};
+
+
+//FETCH CURRENT WORD
+export const fetchCurrentWord = (userId) => (dispatch) => {
+    // const authToken = getState().auth.authToken;
+    return fetch(`${API_BASE_URL}/users/next/${userId}`, {
+        method: 'GET',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        }
+        // headers: {
+            // Provide our auth token as credentials
+            // Authorization: `Bearer ${authToken}`
+        // }
+    })
+        .then(res => normalizeResponseErrors(res))
+        .then(res => res.json())
+        .then(currentWord => dispatch(fetchCurrentSuccess(currentWord)))
+        .catch(err => {
+            dispatch(fetchCurrentError(err));
+        });
+};
+
+//PUT FOR CHANGING ORDER
+export const fetchSetOrder = (userId,testResults) => (dispatch) => {
+    // const authToken = getState().auth.authToken;
+    return fetch(`${API_BASE_URL}/users/next/${userId}/${testResults}`, {
+        method: 'PUT',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        }
+        // headers: {
+            // Provide our auth token as credentials
+            // Authorization: `Bearer ${authToken}`
+        // }
+    })
+        .then(res => normalizeResponseErrors(res))
+        .then(res => res.json())
+        .then(data => dispatch(fetchSetOrderSuccess(data)))
+        .catch(err => {
+            dispatch(fetchCurrentError(err));
         });
 };

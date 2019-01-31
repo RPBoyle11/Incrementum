@@ -2,14 +2,15 @@ import React from 'react';
 import {connect} from 'react-redux';
 import requiresLogin from './requires-login';
 import {fetchNextWord} from '../actions/words';
+import {fetchCurrentWord} from '../actions/words';
 import {fetchProtectedData} from '../actions/protected-data';
 import Game from './game';
 
 export class Dashboard extends React.Component {
 
-
+    //FETCH CURRENT WORD
     componentDidMount() {
-        this.props.dispatch(fetchNextWord(this.props.id));
+        this.props.dispatch(fetchCurrentWord(this.props.id));
     }
 
     render() {

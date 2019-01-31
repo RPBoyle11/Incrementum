@@ -1,6 +1,6 @@
 import React from 'react';
 import {fetchNextWord} from '../actions/words';
-
+import {fetchCurrentWord} from '../actions/words';
 export default class Game extends React.Component {
 
   //Game modes
@@ -16,11 +16,12 @@ export default class Game extends React.Component {
       gameResponse: 'Your New Word is: '
 
     }
-
-
+ 
   }
 
-  //submit answer
+   
+
+  //submit answer -- this does a PUT based on answer correctness
   onSubmit(e) { 
     e.preventDefault();
     let userAnswer = this.input.value;
@@ -42,6 +43,16 @@ export default class Game extends React.Component {
       testResults = false;
 
     }
+
+
+      //PUT based on test results
+       
+      this.props.dispatch(fetchSetOrder(this.props.id,testResults,));
+       
+
+
+   
+
 
     let update_gameMode;
     let update_gameResponse;
@@ -72,8 +83,8 @@ export default class Game extends React.Component {
   onNextClick(){
 
     //do we need to pass in the current word to find out whats next?
-    this.props.dispatch(fetchNextWord());
-    this.props.dispatch(changeCurrentWord());
+    this.props.dispatch(fetchCurrentWord());
+    //this.props.dispatch(changeCurrentWord());
 
       
     //random word selector
