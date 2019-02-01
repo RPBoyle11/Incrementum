@@ -125,7 +125,7 @@ export const fetchSetOrder = (testResults, userInfo) => (dispatch) => {
     //console.log('state: ',store.getState().auth.currentUser);
 
     const authToken = store.getState().auth.authToken;
-    dispatch(fetchSetOrderRequest())
+    // dispatch(fetchSetOrderRequest())
     return fetch(`${API_BASE_URL}/users/next/${userInfo.id}/${testResults}`, {
         method: 'PUT',
         body: JSON.stringify(userInfo),
