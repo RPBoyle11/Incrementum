@@ -10,7 +10,6 @@ const initialState = {
 
 export default function reducer(state = initialState, action) {
   if (action.type === FETCH_WORDS_SUCCESS) {
-      console.log('Fetch Success: ', action);
       return Object.assign({}, state, {
           words: [...action.words],
           error: null

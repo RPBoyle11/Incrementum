@@ -10,11 +10,9 @@ const initialState = {
   error: null
 };
  
-
 export default function reducer(state = initialState, action) {
 
     if (action.type === FETCH_CURRENT_REQUEST) {
-        console.log('Fetch REQUEST: ', action);
         return Object.assign({}, state, {
           isfetching: action.isfetching,
           error: null
@@ -22,7 +20,6 @@ export default function reducer(state = initialState, action) {
       }
 
     if (action.type === FETCH_CURRENT_SUCCESS) {
-        console.log('Fetch Success: ', action);
         return Object.assign({}, state, {
             userRefresh: action.userRefresh,
             isfetching: action.isfetching,

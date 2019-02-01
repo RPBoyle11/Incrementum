@@ -12,7 +12,6 @@ const initialState = {
 export default function reducer(state = initialState, action) {
 
     if (action.type === FETCH_SET_ORDER_SUCCESS) {
-        console.log('Fetch Success: ', action);
         return Object.assign({}, state, {
           userInfo: action.userInfo,
           error: null

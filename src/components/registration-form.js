@@ -18,7 +18,6 @@ export class RegistrationForm extends React.Component {
     }
 
     render() {
-        console.log(this.props.wordsArr);
         return (
             <form
                 className="login-form"
