@@ -17,14 +17,16 @@ export class Dashboard extends React.Component {
         console.log(this.props.currentWord);
           
         return (
-            <div className="dashboard">
-                Hello {this.props.name} 
+            <div className="dashboard" >
+                Hello {this.props.name} &nbsp;&nbsp;&nbsp;&nbsp; Your Current Score is: {this.props.score}
                 <br/>
+                
                 <br/>
                 <hr/>
                 <br/>
                 <Game userRefresh={this.props.currentWord} currentUser={this.props.currentUser} />
                 <br/>
+                this is userRefresh head: {this.props.currentWord.head}
                 <hr/>
                  
             </div>
@@ -42,7 +44,8 @@ const mapStateToProps = state => {
         nextWord: state.nextWord.nextWord,
         id: currentUser._id,
         currentWord: state.currentWord.userRefresh,
-        currentUser: state.auth.currentUser
+        currentUser: state.auth.currentUser,
+        score: state.auth.currentUser.score
         
     };
 };

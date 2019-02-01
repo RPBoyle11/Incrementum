@@ -3,3 +3,10 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+
+.dashboard,.header-bar,.home {
+
+  text-align: center;
+
+}

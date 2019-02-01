@@ -24,7 +24,6 @@ export class HeaderBar extends React.Component {
         return (
             <div className="header-bar">
                 <h1>Italian 5000!</h1>
-               
                 {logOutButton}
             </div>
         );

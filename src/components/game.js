@@ -15,7 +15,7 @@ export class Game extends React.Component {
     this.state = {
 
       gameMode: 'newWordMode',
-      gameResponse: 'Your New Word is: '
+      gameResponse: 'Your Word to Learn is: '
 
     }
  
@@ -92,7 +92,7 @@ export class Game extends React.Component {
     this.setState({
 
       gameMode: 'newWordMode',
-      gameResponse: 'Your New Word is: '
+      gameResponse: 'Here is Your Next Word to Learn '
        
     })
   }
@@ -104,7 +104,7 @@ export class Game extends React.Component {
     
     if(this.props.userRefresh.questions !== undefined){
 
-      console.log(this.props.userRefresh.questions);
+      //console.log(this.props.userRefresh.questions);
       theWord = this.props.userRefresh.questions[this.props.userRefresh.head].word;
       theAnswer = this.props.userRefresh.questions[this.props.userRefresh.head].answer;
     }
@@ -116,12 +116,12 @@ export class Game extends React.Component {
         <div>
           <h3>{this.state.gameResponse}</h3>
           <br/>
-          <p> {theWord} </p>
+          <h1> {theWord} </h1>
           <br/>
           <hr/>
           <br/>
           <form onSubmit={e => this.onSubmit(e)}>
-            <input
+          Enter answer here: <input
                   type="text"
                   id="answer"
                   ref={input => (this.input = input)}
