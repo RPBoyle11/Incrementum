@@ -27,30 +27,22 @@ export class Game extends React.Component {
   onSubmit(e) { 
     e.preventDefault();
     let userAnswer = this.input.value;
-
     //clear input field
     e.target.reset();
-  
     let testResults;
- 
     let theAnswer = this.props.userRefresh.questions[this.props.userRefresh.head].answer;
-
     if(theAnswer.toLowerCase() === userAnswer.toLowerCase()){
-
       testResults = true;
-
     }
     else{
-
       testResults = false;
-
     }
-
-
     //PUT based on test results
-    console.log('>>id',this.props.currentUser._id,'>>test', testResults,'>>user all', this.props.currentUser);
+    //console.log('>>id',this.props.currentUser._id,'>>test', testResults,'>>user all', this.props.currentUser);
     
-    this.props.dispatch(fetchSetOrder(testResults, this.props.currentUser));
+    console.log('userRefresh info >>>>>>>', this.props.userRefresh);
+
+    this.props.dispatch(fetchSetOrder(testResults, this.props.userRefresh));
        
 
     let update_gameMode;

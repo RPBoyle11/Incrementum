@@ -6,8 +6,6 @@ import {
 const initialState = {
    
   userInfo: null,
-  testResults: null,
-  _id:null,
   error: null
 };
  
@@ -17,8 +15,8 @@ export default function reducer(state = initialState, action) {
         console.log('Fetch Success: ', action);
         return Object.assign({}, state, {
           userInfo: action.userInfo,
-          testResults: action.testResults,
-          _id: action._id,
+          // testResults: action.testResults,
+          // _id: action._id,
           error: null
         });
     } else if (action.type === FETCH_SET_ORDER_ERROR) {

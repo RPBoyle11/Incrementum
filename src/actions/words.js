@@ -42,9 +42,9 @@ export const fetchCurrentError = error => ({
 
 
 export const FETCH_SET_ORDER_SUCCESS = 'FETCH_SET_ORDER_SUCCESS';
-export const fetchSetOrderSuccess = data => ({
+export const fetchSetOrderSuccess = userInfo => ({
     type: FETCH_SET_ORDER_SUCCESS,
-    data
+    userInfo
 });
 
 export const FETCH_SET_ORDER_ERROR = 'FETCH_SET_ORDER_ERROR';
@@ -52,8 +52,6 @@ export const fetchSetOrderError = error => ({
     type: FETCH_SET_ORDER_ERROR,
     error
 });
-
-
 
 export const fetchWords = () => (dispatch) => {
     // const authToken = getState().auth.authToken;
@@ -117,32 +115,24 @@ export const fetchCurrentWord = (userId) => (dispatch) => {
 };
 
 //PUT FOR CHANGING ORDER
-export const fetchSetOrder = (testResults,userInfo) => (dispatch) => {
+export const fetchSetOrder = (testResults, userInfo) => (dispatch) => {
   
     //console.log('state: ',store.getState().auth.currentUser);
 
     const authToken = store.getState().auth.authToken;
  
-    return fetch(`${API_BASE_URL}/users/next/${userInfo._id}/${testResults}`, {
+    return fetch(`${API_BASE_URL}/users/next/${userInfo.id}/${testResults}`, {
         method: 'PUT',
         body: JSON.stringify(userInfo),
         headers: {
           Authorization: `Bearer ${authToken}`,
           'Accept': 'application/json',
-          'content-type': 'application/json'
-          
+          'content-type': 'application/json'   
         }
-        // headers: {
-            // Provide our auth token as credentials
-            // Authorization: `Bearer ${authToken}`
-        // }
-
-        // 'data': {userInfo:JSON.stringify(userInfo)},
-          
     })
         .then(res => normalizeResponseErrors(res))
         .then(res => res.json())
-        .then(data => dispatch(fetchSetOrderSuccess(data)))
+        .then(userInfo => dispatch(fetchSetOrderSuccess(userInfo)))
         .catch(err => {
             dispatch(fetchCurrentError(err));
         });
