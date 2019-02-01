@@ -87,6 +87,8 @@ export class Game extends React.Component {
   onNextClick(){
 
     //do we need to pass in the current word to find out whats next?
+    // theWord;
+
     this.props.dispatch(fetchCurrentWord(this.props.currentUser._id));
     //this.props.dispatch(changeCurrentWord());
 

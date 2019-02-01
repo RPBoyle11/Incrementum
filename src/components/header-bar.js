@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {clearAuth} from '../actions/auth';
 import {clearAuthToken} from '../local-storage';
+import italian5000 from '../images/header_stuff_01.jpg';
 
 export class HeaderBar extends React.Component {
     logOut() {
@@ -23,7 +24,8 @@ export class HeaderBar extends React.Component {
         }
         return (
             <div className="header-bar">
-                <h1>Italian 5000!</h1>
+            <img src={italian5000} alt='italian5000'/> 
+                 
                 {logOutButton}
             </div>
         );
