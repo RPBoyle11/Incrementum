@@ -11,7 +11,7 @@ Godere!
 [https://fathomless-savannah-97450.herokuapp.com/](https://fathomless-savannah-97450.herokuapp.com/)
 
 ### Link to server github repo:
-https://github.com/thinkful-ei26/Randy-RP-Spaced-Rep-Client
+https://github.com/thinkful-ei26/Randy-RP-Spaced-Rep-Server
 
 
 
