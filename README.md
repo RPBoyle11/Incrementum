@@ -14,19 +14,19 @@ Godere!
 - MongoDB for the database
 
 ## User Log-in:
-![](src/images/screen_shot_01.png)
+![](src/images/screen_shot_01.jpg)
 
 ## New User Registration:
-![](src/images/screen_shot_02.png)
+![](src/images/screen_shot_02.jpg)
 
 ## Answer Mode:
-![](src/images/screen_shot_03.png)
+![](src/images/screen_shot_03.jpg)
 
 ## Right Answer:
-![](src/images/screen_shot_04.png)
+![](src/images/screen_shot_04.jpg)
 
 ## Wrong Answer:
-![](src/images/screen_shot_05.png)
+![](src/images/screen_shot_05.jpg)
 
 
 
@@ -40,9 +40,12 @@ public/
   index.html
   favicon.ico
 src/
-  App.css
-  App.js
-  App.test.js
+  actions/
+  components/
+  reducers/
+  index.css
+  config.js
+  local-storage.js
   index.css
   index.js
   logo.svg
