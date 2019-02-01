@@ -7,6 +7,14 @@ Each test is then processed using a complex algorithm to track which questions y
 
 Godere!
 
+### Link to deployed app: 
+[https://fathomless-savannah-97450.herokuapp.com/](https://fathomless-savannah-97450.herokuapp.com/)
+
+### Link to server github repo:
+https://github.com/thinkful-ei26/Randy-RP-Spaced-Rep-Client
+
+
+
 ### Technical Stack:
 - React for Frontend
 - Redux for State Management
