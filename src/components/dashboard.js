@@ -23,7 +23,7 @@ export class Dashboard extends React.Component {
                 <br/>
                 <hr/>
                 <br/>
-                <Game userRefresh={this.props.currentWord} currentUser={this.props.currentUser} />
+                <Game userRefresh={this.props.currentWord} currentUser={this.props.currentUser} loading={this.props.isfetching} />
                 <br/>
                 <hr/>
                  
@@ -43,7 +43,8 @@ const mapStateToProps = state => {
         id: currentUser._id,
         currentWord: state.currentWord.userRefresh,
         currentUser: state.auth.currentUser,
-        score: state.currentWord.userRefresh.score
+        score: state.currentWord.userRefresh.score,
+        isfetching: state.currentWord.isfetching
         
     };
 };

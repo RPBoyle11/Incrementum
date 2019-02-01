@@ -120,6 +120,10 @@ export class Game extends React.Component {
       //this.setTheWord();
     }
 
+    if(this.props.loading){
+      theWord = ' ';
+    }
+
     //NEW WORD MODE
     if(this.state.gameMode === 'newWordMode'){
 
