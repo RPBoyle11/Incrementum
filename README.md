@@ -14,38 +14,38 @@ Godere!
 - MongoDB for the database
 
 ## User Log-in:
-![](images/screen_shot_01.png)
+![](src/images/screen_shot_01.png)
 
 ## New User Registration:
-![](images/screen_shot_02.png)
+![](src/images/screen_shot_02.png)
 
 ## Answer Mode:
-![](images/screen_shot_03.png)
+![](src/images/screen_shot_03.png)
 
 ## Right Answer:
-![](images/screen_shot_04.png)
+![](src/images/screen_shot_04.png)
 
 ## Wrong Answer:
-![](images/screen_shot_05.png)
+![](src/images/screen_shot_05.png)
 
 
 
 
 ```
 my-app/
-README.md
+  README.md
 node_modules/
-package.json
+  package.json
 public/
-index.html
-favicon.ico
+  index.html
+  favicon.ico
 src/
-App.css
-App.js
-App.test.js
-index.css
-index.js
-logo.svg
+  App.css
+  App.js
+  App.test.js
+  index.css
+  index.js
+  logo.svg
 ```
 
 
