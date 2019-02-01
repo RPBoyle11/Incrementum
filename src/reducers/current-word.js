@@ -17,8 +17,6 @@ export default function reducer(state = initialState, action) {
         console.log('Fetch REQUEST: ', action);
         return Object.assign({}, state, {
           isfetching: action.isfetching,
-          // testResults: action.testResults,
-          // _id: action._id,
           error: null
         });
       }

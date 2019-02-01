@@ -5,7 +5,6 @@ import {loadAuthToken} from './local-storage';
 import authReducer from './reducers/auth';
 import protectedDataReducer from './reducers/protected-data';
 import wordsReducer from './reducers/words';
-import nextWordReducer from './reducers/next-word';
 import currentWordReducer from './reducers/current-word';
 import setOrderReducer from './reducers/set-order';
 import {setAuthToken, refreshAuthToken} from './actions/auth';
@@ -16,7 +15,6 @@ const store = createStore(
         auth: authReducer,
         protectedData: protectedDataReducer,
         words: wordsReducer,
-        nextWord: nextWordReducer,
         currentWord: currentWordReducer,
         setOrder: setOrderReducer
     }),

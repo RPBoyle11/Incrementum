@@ -18,22 +18,11 @@ body {
    
 }
 
-
 .dashboard,.header-bar,.home {
-
   text-align: center;
-  
-
-}
-
-.app {
-
-   
- 
 }
 
 button {
-
   display: inline-block;
   padding: 0.35em 1.2em;
   border: 0.1em solid black;
@@ -47,7 +36,6 @@ button {
   text-align: center;
   transition: all 0.2s;
   border-radius: 4px;
-
   }
 
   button:hover{
@@ -55,9 +43,3 @@ button {
   background-color: green;
   }
 
-  /* @media all and (max-width:30em){
-    button {
-      display: block;
-      margin:0.4em auto;
-      }
-    } */

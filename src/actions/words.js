@@ -14,18 +14,6 @@ export const fetchWordsError = error => ({
     error
 });
 
-export const FETCH_NEXT_SUCCESS = 'FETCH_NEXT_SUCCESS';
-export const fetchNextSuccess = nextWord => ({
-    type: FETCH_NEXT_SUCCESS,
-    nextWord
-});
-
-export const FETCH_NEXT_ERROR = 'FETCH_NEXT_ERROR';
-export const fetchNextError = error => ({
-    type: FETCH_NEXT_ERROR,
-    error
-});
-
 export const FETCH_CURRENT_SUCCESS = 'FETCH_CURRENT_SUCCESS';
 export const fetchCurrentSuccess = userRefresh => ({
     type: FETCH_CURRENT_SUCCESS,
@@ -59,7 +47,6 @@ export const fetchSetOrderError = (error) => ({
 });
 
 export const fetchWords = () => (dispatch) => {
-    // const authToken = getState().auth.authToken;
     return fetch(`${API_BASE_URL}/words`, {
         method: 'GET',
         headers: {
@@ -75,31 +62,8 @@ export const fetchWords = () => (dispatch) => {
         });
 };
 
-export const fetchNextWord = (userId) => (dispatch) => {
-    // const authToken = getState().auth.authToken;
-    return fetch(`${API_BASE_URL}/users/next/${userId}`, {
-        method: 'GET',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        }
-        // headers: {
-            // Provide our auth token as credentials
-            // Authorization: `Bearer ${authToken}`
-        // }
-    })
-        .then(res => normalizeResponseErrors(res))
-        .then(res => res.json())
-        .then(nextWord => dispatch(fetchNextSuccess(nextWord)))
-        .catch(err => {
-            dispatch(fetchNextError(err));
-        });
-};
-
-
 //FETCH CURRENT WORD
 export const fetchCurrentWord = (userId) => (dispatch) => {
-    // const authToken = getState().auth.authToken;
     dispatch(fetchCurrentRequest())
     return fetch(`${API_BASE_URL}/users/next/${userId}`, {
         method: 'GET',
@@ -107,10 +71,6 @@ export const fetchCurrentWord = (userId) => (dispatch) => {
           'Accept': 'application/json',
           'Content-Type': 'application/json'
         }
-        // headers: {
-            // Provide our auth token as credentials
-            // Authorization: `Bearer ${authToken}`
-        // }
     })
         .then(res => normalizeResponseErrors(res))
         .then(res => res.json())
@@ -122,11 +82,7 @@ export const fetchCurrentWord = (userId) => (dispatch) => {
 
 //PUT FOR CHANGING ORDER
 export const fetchSetOrder = (testResults, userInfo) => (dispatch) => {
-  
-    //console.log('state: ',store.getState().auth.currentUser);
-
     const authToken = store.getState().auth.authToken;
-    
     return fetch(`${API_BASE_URL}/users/next/${userInfo.id}/${testResults}`, {
         method: 'PUT',
         body: JSON.stringify(userInfo),

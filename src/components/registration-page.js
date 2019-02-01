@@ -22,11 +22,8 @@ export class RegistrationPage extends React.Component {
                     wordsArr[i].next = 0;
                 }
             }
-            //console.log(wordsArr)
         }
 
-        //console.log(wordsArr);
-        //console.log(this.props.words);
         if (this.props.loggedIn) {
             return <Redirect to="/dashboard" />;
         }

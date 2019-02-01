@@ -10,8 +10,6 @@ export class HeaderBar extends React.Component {
         clearAuthToken();
     }
 
-
-
     render() {
         // Only render the log out button if we are logged in
         let logOutButton;
@@ -25,7 +23,6 @@ export class HeaderBar extends React.Component {
         return (
             <div className="header-bar">
             <img src={italian5000} alt='italian5000'/> 
-                 
                 {logOutButton}
             </div>
         );

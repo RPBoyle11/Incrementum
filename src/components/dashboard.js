@@ -1,9 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import requiresLogin from './requires-login';
-import {fetchNextWord} from '../actions/words';
 import {fetchCurrentWord} from '../actions/words';
-import {fetchProtectedData} from '../actions/protected-data';
 import Game from './game';
 
 export class Dashboard extends React.Component {
@@ -14,7 +12,6 @@ export class Dashboard extends React.Component {
     }
     
     render() {
-       // console.log(this.props.currentWord);
           
         return (
             <div className="dashboard" >
@@ -39,7 +36,6 @@ const mapStateToProps = state => {
         name: `${currentUser.firstName} ${currentUser.lastName}`,
         protectedData: state.protectedData.data,
         words: state.words.words,
-        nextWord: state.nextWord.nextWord,
         id: currentUser._id,
         currentWord: state.currentWord.userRefresh,
         currentUser: state.auth.currentUser,
