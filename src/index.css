@@ -2,11 +2,32 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  height: 100%;
+  background-size: cover;
+
+  /* The image used */
+  background-image: url(./images/background.jpg);
+
+  /* Full height */
+  height: 100%; 
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+   
 }
 
 
 .dashboard,.header-bar,.home {
 
   text-align: center;
+  
 
+}
+
+.app {
+
+   
+ 
 }
