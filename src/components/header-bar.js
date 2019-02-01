@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {clearAuth} from '../actions/auth';
 import {clearAuthToken} from '../local-storage';
-import italian5000 from '../images/header_stuff_01.jpg';
+import italian5000 from '../images/header_stuff_01.png';
 
 export class HeaderBar extends React.Component {
     logOut() {
