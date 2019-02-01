@@ -41,14 +41,37 @@ public/
   favicon.ico
 src/
   actions/
+    auth.js
+    users.js 
+    words.js
+    utils.js
   components/
+    app.js
+    dashboard.js
+    game.js
+    header-bar.js
+    hello-user.js
+    input.js
+    intro.info.js
+    landing-page.js
+    login-form.js
+    registration-form.js
+    registration-page.js
+    requires-login.js
   reducers/
+    auth.js
+    current-word.js
+    next-word.js
+    set-order.js
+    words.js
+  images/
   index.css
   config.js
   local-storage.js
-  index.css
   index.js
   logo.svg
+  store.js
+  validators.js
 ```
 
 
