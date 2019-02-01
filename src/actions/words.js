@@ -38,24 +38,24 @@ export const fetchCurrentError = error => ({
     error
 });
 
-export const FETCH_SET_ORDER_REQUEST = 'FETCH_SET_ORDER_REQUEST';
-export const fetchSetOrderRequest = (isfetching) => ({
-    type: FETCH_SET_ORDER_REQUEST,
-    isfetching
-});
+// export const FETCH_SET_ORDER_REQUEST = 'FETCH_SET_ORDER_REQUEST';
+// export const fetchSetOrderRequest = (isfetching) => ({
+//     type: FETCH_SET_ORDER_REQUEST,
+//     isfetching
+// });
 
 export const FETCH_SET_ORDER_SUCCESS = 'FETCH_SET_ORDER_SUCCESS';
-export const fetchSetOrderSuccess = (userInfo, isfetching) => ({
+export const fetchSetOrderSuccess = (userInfo) => ({
     type: FETCH_SET_ORDER_SUCCESS,
-    userInfo,
-    isfetching
+    userInfo
+    // isfetching
 });
 
 export const FETCH_SET_ORDER_ERROR = 'FETCH_SET_ORDER_ERROR';
-export const fetchSetOrderError = (error, isfetching) => ({
+export const fetchSetOrderError = (error) => ({
     type: FETCH_SET_ORDER_ERROR,
-    error,
-    isfetching
+    error
+    // isfetching
 });
 
 export const fetchWords = () => (dispatch) => {
