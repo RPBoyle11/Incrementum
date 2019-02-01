@@ -25,7 +25,6 @@ export class Dashboard extends React.Component {
                 <br/>
                 <Game userRefresh={this.props.currentWord} currentUser={this.props.currentUser} />
                 <br/>
-                this is userRefresh head: {this.props.currentWord.head}
                 <hr/>
                  
             </div>

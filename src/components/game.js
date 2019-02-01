@@ -14,6 +14,8 @@ export class Game extends React.Component {
     super(props);
     this.state = {
 
+      theWord:'Loading... ',
+      theAnswer: 'Loading...',
       gameMode: 'newWordMode',
       gameResponse: 'Your Word to Learn is: '
 
@@ -21,7 +23,21 @@ export class Game extends React.Component {
  
   }
 
-   
+  setTheWord(){
+
+      // //console.log(this.props.userRefresh.questions);
+      // theWord = this.props.userRefresh.questions[this.props.userRefresh.head].word;
+      // theAnswer = this.props.userRefresh.questions[this.props.userRefresh.head].answer;
+
+      this.setState({
+
+        theWord:this.props.userRefresh.questions[this.props.userRefresh.head].word,
+        theAnswer:this.props.userRefresh.questions[this.props.userRefresh.head].answer
+          
+      })
+
+
+  } 
 
   //submit answer -- this does a PUT based on answer correctness
   onSubmit(e) { 
@@ -83,6 +99,7 @@ export class Game extends React.Component {
 
     this.setState({
 
+      theWord:'Loading... ',
       gameMode: 'newWordMode',
       gameResponse: 'Here is Your Next Word to Learn '
        
@@ -91,14 +108,16 @@ export class Game extends React.Component {
 
   render(){
 
-    let theWord = 'Loading...';
-    let theAnswer = '';
+    //let theWord = 'Loading...';
+    //let theAnswer = '';
     
-    if(this.props.userRefresh.questions !== undefined){
+    if(this.props.userRefresh.questions !== undefined && this.state.theWord === 'Loading... '){
 
-      //console.log(this.props.userRefresh.questions);
-      theWord = this.props.userRefresh.questions[this.props.userRefresh.head].word;
-      theAnswer = this.props.userRefresh.questions[this.props.userRefresh.head].answer;
+      // //console.log(this.props.userRefresh.questions);
+      // theWord = this.props.userRefresh.questions[this.props.userRefresh.head].word;
+      // theAnswer = this.props.userRefresh.questions[this.props.userRefresh.head].answer;
+
+      this.setTheWord();
     }
 
     //NEW WORD MODE
@@ -108,7 +127,7 @@ export class Game extends React.Component {
         <div>
           <h3>{this.state.gameResponse}</h3>
           <br/>
-          <h1> {theWord} </h1>
+          <h1> {this.state.theWord} </h1>
           <br/>
           <hr/>
           <br/>
@@ -131,7 +150,7 @@ export class Game extends React.Component {
         <div>
           <h3>{this.state.gameResponse}</h3>
           <br/>
-          <p> You are CORRECT, the meaning of {theWord} is {theAnswer}.</p>
+          <p> You are CORRECT, the meaning of {this.state.theWord} is {this.state.theAnswer}.</p>
           <br/>
           <hr/>
           <button onClick={(e)=>this.onNextClick()}>NEXT WORD</button>
@@ -147,7 +166,7 @@ export class Game extends React.Component {
           <div>
             <h3>{this.state.gameResponse}</h3>
             <br/>
-            <p>The correct meaning of {theWord} is {theAnswer}.</p>
+            <p>The correct meaning of {this.state.theWord} is {this.state.theAnswer}.</p>
             <br/>
             <hr/>
             <button onClick={(e)=>this.onNextClick()}>NEXT WORD</button>

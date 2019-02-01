@@ -26,7 +26,6 @@ export const fetchNextError = error => ({
     error
 });
 
-
 export const FETCH_CURRENT_SUCCESS = 'FETCH_CURRENT_SUCCESS';
 export const fetchCurrentSuccess = userRefresh => ({
     type: FETCH_CURRENT_SUCCESS,
@@ -39,18 +38,24 @@ export const fetchCurrentError = error => ({
     error
 });
 
-
+export const FETCH_SET_ORDER_REQUEST = 'FETCH_SET_ORDER_REQUEST';
+export const fetchSetOrderRequest = (isfetching) => ({
+    type: FETCH_SET_ORDER_REQUEST,
+    isfetching
+});
 
 export const FETCH_SET_ORDER_SUCCESS = 'FETCH_SET_ORDER_SUCCESS';
-export const fetchSetOrderSuccess = userInfo => ({
+export const fetchSetOrderSuccess = (userInfo, isfetching) => ({
     type: FETCH_SET_ORDER_SUCCESS,
-    userInfo
+    userInfo,
+    isfetching
 });
 
 export const FETCH_SET_ORDER_ERROR = 'FETCH_SET_ORDER_ERROR';
-export const fetchSetOrderError = error => ({
+export const fetchSetOrderError = (error, isfetching) => ({
     type: FETCH_SET_ORDER_ERROR,
-    error
+    error,
+    isfetching
 });
 
 export const fetchWords = () => (dispatch) => {
@@ -120,7 +125,7 @@ export const fetchSetOrder = (testResults, userInfo) => (dispatch) => {
     //console.log('state: ',store.getState().auth.currentUser);
 
     const authToken = store.getState().auth.authToken;
- 
+    dispatch(fetchSetOrderRequest())
     return fetch(`${API_BASE_URL}/users/next/${userInfo.id}/${testResults}`, {
         method: 'PUT',
         body: JSON.stringify(userInfo),
