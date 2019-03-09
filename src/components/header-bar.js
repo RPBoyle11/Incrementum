@@ -22,7 +22,7 @@ export class HeaderBar extends React.Component {
         }
         return (
             <div className="header-bar">
-            <img src={italian5000} alt='italian5000'/> 
+            <img src={italian5000} className='header-img' alt='italian5000'/> 
                 {logOutButton}
             </div>
         );
