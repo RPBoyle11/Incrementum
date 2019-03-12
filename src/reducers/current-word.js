@@ -11,25 +11,28 @@ const initialState = {
 };
  
 export default function reducer(state = initialState, action) {
-
-    if (action.type === FETCH_CURRENT_REQUEST) {
+  switch(action.type) {
+    case FETCH_CURRENT_REQUEST: {
         return Object.assign({}, state, {
           isfetching: action.isfetching,
           error: null
         });
       }
 
-    if (action.type === FETCH_CURRENT_SUCCESS) {
+    case FETCH_CURRENT_SUCCESS: {
         return Object.assign({}, state, {
             userRefresh: action.userRefresh,
             isfetching: action.isfetching,
             error: null
         });
-    } else if (action.type === FETCH_CURRENT_ERROR) {
+    } 
+    case FETCH_CURRENT_ERROR: {
         return Object.assign({}, state, {
             error: action.error,
             isfetching: action.isfetching
         });
     }
-    return state;
+    default:
+      return state;
+    }
   }

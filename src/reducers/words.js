@@ -9,15 +9,19 @@ const initialState = {
 };
 
 export default function reducer(state = initialState, action) {
-  if (action.type === FETCH_WORDS_SUCCESS) {
-      return Object.assign({}, state, {
-          words: [...action.words],
-          error: null
-      });
-  } else if (action.type === FETCH_WORDS_ERROR) {
-      return Object.assign({}, state, {
-          error: action.error
-      });
+  switch(action.type) {
+    case FETCH_WORDS_SUCCESS: {
+        return Object.assign({}, state, {
+            words: [...action.words],
+            error: null
+        });
+    } 
+    case FETCH_WORDS_ERROR: {
+        return Object.assign({}, state, {
+            error: action.error
+        });
+    }
+    default:
+      return state;
   }
-  return state;
 }

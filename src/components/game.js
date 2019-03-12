@@ -19,11 +19,11 @@ export class Game extends React.Component {
   //submit answer -- this does a PUT based on answer correctness
   onSubmit(e) { 
     e.preventDefault();
-    let userAnswer = this.input.value;
+    const userAnswer = this.input.value;
     //clear input field
     e.target.reset();
     let testResults;
-    let theAnswer = this.props.userRefresh.questions[this.props.userRefresh.head].answer;
+    const theAnswer = this.props.userRefresh.questions[this.props.userRefresh.head].answer;
     if(theAnswer.toLowerCase() === userAnswer.toLowerCase()){
       testResults = true;
     }
