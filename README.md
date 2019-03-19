@@ -13,7 +13,9 @@ Godere!
 ### Link to server github repo:
 https://github.com/thinkful-ei26/Randy-RP-Spaced-Rep-Server
 
-
+## Demo Account
+Username: username123
+Password: Password123
 
 ### Technical Stack:
 - React for Frontend
