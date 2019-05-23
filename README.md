@@ -1,9 +1,9 @@
-## ITALIAN 5000!
+## Incrementum!
 
-This is Italian 5000!
+This is Incrementum!
 
-Italian 5000 teaches you the Italian language by giving you daily tests.
-Each test is then processed using a complex algorithm to track which questions you are getting right and which ones you are getting wrong and then tests you more often on the words you keep getting wrong to help you learn them better. Registering allows Italian 5000 to keep track of your progress so each time you login you will resume learning where you left off.
+Incrementum teaches you the Italian language by giving you daily tests.
+Each test is then processed using a complex algorithm to track which questions you are getting right and which ones you are getting wrong and then tests you more often on the words you keep getting wrong to help you learn them better. Registering allows Incrementum to keep track of your progress so each time you login you will resume learning where you left off.
 
 Godere!
 
@@ -59,7 +59,7 @@ src/
     app.js
     dashboard.js
     game.js
-    header-bar.js
+    navbar.js
     hello-user.js
     input.js
     intro.info.js

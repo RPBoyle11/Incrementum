@@ -2,9 +2,9 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {clearAuth} from '../actions/auth';
 import {clearAuthToken} from '../local-storage';
-import italian5000 from '../images/header_stuff_01.png';
+import '../styles/navbar.css';
 
-export class HeaderBar extends React.Component {
+export class Navbar extends React.Component {
     logOut() {
         this.props.dispatch(clearAuth());
         clearAuthToken();
@@ -21,10 +21,12 @@ export class HeaderBar extends React.Component {
             );
         }
         return (
-            <div className="header-bar">
-            <img src={italian5000} className='header-img' alt='italian5000'/> 
+            <nav className="navbar">
+                <h1>Incrementum</h1>
+                
+            {/* <img src={} className='header-img' alt=''/>  */}
                 {logOutButton}
-            </div>
+            </nav>
         );
     }
 }
@@ -35,4 +37,4 @@ const mapStateToProps = state => ({
  
 });
 
-export default connect(mapStateToProps)(HeaderBar);
+export default connect(mapStateToProps)(Navbar);

@@ -30,7 +30,7 @@ export class RegistrationPage extends React.Component {
 
         return (
             <div className="home">
-                <h2>Register for Italian 5000!</h2>
+                <h2>Register for Incrementum!</h2>
                 <RegistrationForm wordsArr={wordsArr}/>
                 <Link to="/">Login</Link>
             </div>
