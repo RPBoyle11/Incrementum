@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
 import {clearAuth} from '../actions/auth';
 import {clearAuthToken} from '../local-storage';
 import '../styles/navbar.css';
@@ -23,18 +24,16 @@ export class Navbar extends React.Component {
         return (
             <nav className="navbar">
                 <h1>Incrementum</h1>
-                
             {/* <img src={} className='header-img' alt=''/>  */}
-                {logOutButton}
+                {/* {logOutButton} */}
+                <Link className='login-button' to="/login">Login</Link>
             </nav>
         );
     }
 }
 
 const mapStateToProps = state => ({
-    
-    loggedIn: state.auth.currentUser !== null
- 
+    loggedIn: state.auth.currentUser !== null 
 });
 
 export default connect(mapStateToProps)(Navbar);

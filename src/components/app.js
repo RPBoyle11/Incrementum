@@ -8,6 +8,7 @@ import RegistrationPage from './registration-page';
 import {refreshAuthToken} from '../actions/auth';
 import background from '../images/background.jpg';
 import '../styles/app.css';
+import LoginForm from './login-form';
 
 export class App extends React.Component {
     componentDidUpdate(prevProps) {
@@ -46,6 +47,7 @@ export class App extends React.Component {
                 <Route exact path="/" component={LandingPage} />
                 <Route exact path="/dashboard" component={Dashboard} />
                 <Route exact path="/register" component={RegistrationPage} />
+                <Route exact path='/login' component={LoginForm} />
             </div>
         );
     }

@@ -1,5 +1,27 @@
 .navbar h1 {
-    padding-left: 10px;
-    padding-top: 10px;
-    margin: 0px;
+    margin: 15px 0px 0px 15px;
+    font-family: 'Ubuntu', sans-serif;
+    display: inline-block;
+    font-size: 25px;
+}
+
+.login-button {
+    background-color: rgb(150, 55, 55);
+    color: white;
+    padding: 12px 20px;
+    margin: 15px 15px;
+    float: right;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: 6px;
+}
+
+.login-button:hover {
+    background-color: #270101;
+    cursor: pointer;
+}
+
+.login-button:active {
+    box-shadow: none;
+    top: 5px;
 }
