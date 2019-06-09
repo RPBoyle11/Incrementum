@@ -1,8 +1,9 @@
 import React from 'react';
 import Navbar from './navbar';
+import { Link } from 'react-router-dom';
 import '../styles/intro-info.css';
 
-export default function Intro_info(props){
+export default function Intro_info(){
     return(
       <section className='intro'>
         <Navbar />
@@ -12,6 +13,7 @@ export default function Intro_info(props){
         the words you keep getting wrong to help you learn them better. Registering allows Incrementum <br/>
         to keep track of your progress so each time you login you will resume learning where<br/>
         you left off.</p>
+        <Link className='get-started' to="/register">Get Started</Link>
       </section>
     );
 }
